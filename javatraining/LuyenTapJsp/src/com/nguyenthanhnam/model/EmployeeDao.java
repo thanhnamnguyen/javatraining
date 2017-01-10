@@ -103,7 +103,7 @@ public class EmployeeDao {
 	}
 
 	public void delete(String maNhanVien) {
-		String sql = "Delete from employee where emp_id=? ";
+		String sql = "Delete from employee where emp_id=?";
 		PreparedStatement pst = null;
 		con = getConnection();
 		try {
@@ -130,23 +130,17 @@ public class EmployeeDao {
 		}
 	}
 
-	public List<Employee> searchEmployee(int maNhanVien, int startRecord,
+	public List<Employee> searchEmployee(String maNhanVien, int startRecord,
 			int limitRecord) {
-	
 		List<Employee> listPeople = new ArrayList<Employee>();
 		Employee employee = null;
-//		String sql = "Select * from employee where emp_id = ? limit "
-//				+ startRecord + "," + limitRecord;
-		String sql = "select * from employee where emp_id='"+maNhanVien+"'";
-		
+		String sql = "Select * from employee where emp_id =? limit "
+				+ startRecord + ", " + limitRecord;
 		PreparedStatement pst = null;
 		con = getConnection();
 		try {
 			pst = con.prepareStatement(sql);
-		//	pst.setInt(1,maNhanVien);
-			System.out.println(sql);
-//			pst.setInt(2, startRecord);
-//			pst.setInt(3, limitRecord);
+			pst.setString(1, maNhanVien);
 			ResultSet rs = pst.executeQuery(sql);
 			while (rs.next()) {
 				int emp_id = rs.getInt("emp_id");
@@ -156,7 +150,6 @@ public class EmployeeDao {
 				employee = new Employee(emp_id, emp_name, salary, dept_name);
 				listPeople.add(employee);
 			}
-			System.out.println("TEST:"+sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {

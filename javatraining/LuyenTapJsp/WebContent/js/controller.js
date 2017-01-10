@@ -20,7 +20,7 @@ function change(){
 		 $('#sua').attr('value',"Thêm");
 		 $('#sua').attr('id',"them");
 	});
-	$('#btSearch').on('click',function(){
+	$('#btSeach').on('click',function(){
 		 $('#frominfo').attr('action','SelectServlet');
 		 $('#frominfo').attr('method','get');
 	});

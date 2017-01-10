@@ -19,14 +19,6 @@
 	<h3>Quan Ly Nhan Vien</h3>
 	<div class="process">
 		<form action="AddServlet" method="post" id="frominfo">
-            <div class="row">
-                <div class="col-name">
-                     <input type="text" id="txtsearch" name="search" />
-                </div>
-				<div class="col-content">
-					 <input type="submit" value="Search" id="btSearch">
-				</div>
-            </div>
 			<div class="row">
 				<div class="col-name">Mã Nhân Viên:</div>
 				<div class="col-content">
