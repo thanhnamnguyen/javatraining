@@ -1,0 +1,71 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+body {
+	width: 100%;
+}
+
+h3 {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.process {
+	width: 309px;
+	padding: 22px;
+	height: 216px;
+	margin: auto;
+	border: 1px solid black;
+}
+
+.row {
+	clear: both;
+	padding-bottom: 37px;
+}
+
+.col-name {
+	float: left;
+}
+
+.info {
+	float: right;
+}
+
+.bt {
+	margin: 33px 0px 0px 54px;
+}
+
+.mybt {
+	width: 100px;
+	height: 40px;
+	background: green;
+	color: white;
+	outline: none;
+	border: none;
+}
+
+.display {
+	width: 418px;
+	margin: 58px 0px 0px 418px;
+}
+
+.display #tb, tr {
+	border: 1px solid black;
+	border-collapse: none;
+}
+
+.display #tb, tr, td {
+	width: 650px;
+	border-right: 1px solid black;
+	text-align: center;
+	border: 1px solid black;
+	border-collapse: none;
+}
+.row-par{
+	    margin: 43px 0px 0px 245px;
+}
+.col-par {
+	float: left;
+}

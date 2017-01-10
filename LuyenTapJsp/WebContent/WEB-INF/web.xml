@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+  <display-name>LuyenTapJsp</display-name>
+  <welcome-file-list>
+    <welcome-file>SelectServlet</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <servlet-name>SelectServlet</servlet-name>
+    <servlet-class>com.nguyenthanhnam.controller.SelectServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SelectServlet</servlet-name>
+    <url-pattern>/employee</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AddServlet</servlet-name>
+    <servlet-class>com.nguyenthanhnam.controller.AddServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddServlet</servlet-name>
+    <url-pattern>/add</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>EditServlet</servlet-name>
+    <servlet-class>com.nguyenthanhnam.controller.EditServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EditServlet</servlet-name>
+    <url-pattern>/edit</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeleteServlet</servlet-name>
+    <servlet-class>com.nguyenthanhnam.controller.DeleteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteServlet</servlet-name>
+    <url-pattern>/delete</url-pattern>
+  </servlet-mapping>
+</web-app>
