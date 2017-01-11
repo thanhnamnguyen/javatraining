@@ -8,16 +8,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EmployeeDao {
+import com.nguyenthanhnam.connection.MyConnection;
+import com.nguyenthanhnam.entity.Employee;
+
+public class EmployeeM extends MyConnection {
 	Connection con = null;
 	private int noOfRecord;
-
-	public Connection getConnection() {
-		Connection connection = (Connection) ConnectionFactory.getInstance()
-				.getConnection();
-
-		return connection;
-	}
 
 	public List<Employee> viewAllEmployees(int startRecord, int limitRecord) {
 		Statement stm = null;
@@ -69,8 +65,7 @@ public class EmployeeDao {
 		return noOfRecord;
 	}
 
-	public void edit(String maNhanVien, String tenNhanVien, Float luong,
-			String chucvu) {
+	public void edit(String maNhanVien, String tenNhanVien, Float luong,String chucvu) {
 		PreparedStatement pst = null;
 		String sql = "Update employee Set emp_name=?,salary=?,dept_name=? where emp_id=?";
 		con = getConnection();
@@ -82,7 +77,6 @@ public class EmployeeDao {
 			pst.setString(4, maNhanVien);
 			pst.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			if (pst != null) {
@@ -130,23 +124,14 @@ public class EmployeeDao {
 		}
 	}
 
-	public List<Employee> searchEmployee(int maNhanVien, int startRecord,
-			int limitRecord) {
-	
+	public List<Employee> searchEmployee(int maNhanVien, int startRecord,int limitRecord) {
 		List<Employee> listPeople = new ArrayList<Employee>();
 		Employee employee = null;
-//		String sql = "Select * from employee where emp_id = ? limit "
-//				+ startRecord + "," + limitRecord;
-		String sql = "select * from employee where emp_id='"+maNhanVien+"'";
-		
+		String sql = "select * from employee where emp_id='" + maNhanVien + "'";
 		PreparedStatement pst = null;
 		con = getConnection();
 		try {
 			pst = con.prepareStatement(sql);
-		//	pst.setInt(1,maNhanVien);
-			System.out.println(sql);
-//			pst.setInt(2, startRecord);
-//			pst.setInt(3, limitRecord);
 			ResultSet rs = pst.executeQuery(sql);
 			while (rs.next()) {
 				int emp_id = rs.getInt("emp_id");
@@ -156,7 +141,6 @@ public class EmployeeDao {
 				employee = new Employee(emp_id, emp_name, salary, dept_name);
 				listPeople.add(employee);
 			}
-			System.out.println("TEST:"+sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -178,8 +162,7 @@ public class EmployeeDao {
 		return listPeople;
 	}
 
-	public void insert(String tenNhanVien, float luong,
-			String chucVu) {
+	public void insert(String tenNhanVien, float luong, String chucVu) {
 		String sql = "Insert into employee(emp_name,salary,dept_name) values (?,?,?)";
 		PreparedStatement pst = null;
 		con = getConnection();
@@ -191,7 +174,7 @@ public class EmployeeDao {
 			pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}finally{
+		} finally {
 			if (pst != null) {
 				try {
 					pst.close();

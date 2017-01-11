@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.nguyenthanhnam.model.EmployeeDao;
+import com.nguyenthanhnam.model.EmployeeM;
 
 /**
  * Servlet implementation class DeleteServlet
@@ -25,12 +25,9 @@ public class DeleteServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		String maNhanVien = request.getParameter("info");
-		EmployeeDao dao = new EmployeeDao();
+		EmployeeM dao = new EmployeeM();
 		dao.delete(maNhanVien);
-//		RequestDispatcher view = request
-//				.getRequestDispatcher("SelectServlet");
-//		view.forward(request, response);
-		  response.sendRedirect("SelectServlet");
+		response.sendRedirect("SelectServlet");
 	}
 
 	protected void doPost(HttpServletRequest request,

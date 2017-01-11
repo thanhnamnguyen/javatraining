@@ -1,4 +1,3 @@
-<%@page import="com.nguyenthanhnam.model.Employee"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -19,18 +18,19 @@
 	<h3>Quan Ly Nhan Vien</h3>
 	<div class="process">
 		<form action="AddServlet" method="post" id="frominfo">
-            <div class="row">
-                <div class="col-name">
-                     <input type="text" id="txtsearch" name="search" />
-                </div>
-				<div class="col-content">
-					 <input type="submit" value="Search" id="btSearch">
+			<div class="row">
+				<div class="col-name">
+					<input type="text" id="txtsearch" name="search" />
 				</div>
-            </div>
+				<div class="col-content">
+					<input type="submit" value="Search" id="btSearch">
+				</div>
+			</div>
 			<div class="row">
 				<div class="col-name">Mã Nhân Viên:</div>
 				<div class="col-content">
-					<input type="text" id="manhanvien" class="info" name="manhanvien"  readonly="readonly"/>
+					<input type="text" id="manhanvien" class="info" name="manhanvien"
+						readonly="readonly" />
 				</div>
 			</div>
 			<div class="row">
@@ -69,7 +69,6 @@
 			<tr>
 				<c:forEach var="employee" items="${employeeList}">
 					<tr>
-
 						<td class="item1">${employee.employeeId}</td>
 						<td class="item2">${employee.employeeName}</td>
 						<td class="item3">${employee.salary}</td>

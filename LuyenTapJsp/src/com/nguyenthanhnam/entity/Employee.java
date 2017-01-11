@@ -1,4 +1,4 @@
-package com.nguyenthanhnam.model;
+package com.nguyenthanhnam.entity;
 
 public class Employee {
 	private int employeeId;
